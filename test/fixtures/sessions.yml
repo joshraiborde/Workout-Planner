@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-01-13 08:52:46
+  feeling: MyString
+  race: one
+  workout: one
+
+two:
+  date: 2021-01-13 08:52:46
+  feeling: MyString
+  race: two
+  workout: two
