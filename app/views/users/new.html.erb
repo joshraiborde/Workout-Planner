@@ -1,0 +1,16 @@
+<h1> Sign Up Here! </h1>
+
+<%= form_for @user do |f| %>
+<!-- because we're creating a user, we're using '@user' instead of ':user' because ':user' is for finding a user in the database -->
+    
+    <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+<!--  f.email_field :email, required:true-->
+    <%= f.label :password %>
+  <%= f.password_field :password %>
+
+    <%= f.submit "Sign Up" %>
+<% end %>
