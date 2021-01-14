@@ -1,0 +1,18 @@
+<h1> Log In Here! </h1>
+
+<% if flash[:message]%>
+  <%= flash[:message] %>
+<% end %>
+
+<%= form_for :user do |f| %>
+<!-- because we're finding a user in the database, we're using ':user' instead of '@user' because '@user' is for creating a new user -->
+
+    
+    <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+    <%= f.submit "Log In" %>
+<% end %> 
