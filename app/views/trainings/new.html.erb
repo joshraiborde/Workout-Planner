@@ -1,5 +1,7 @@
 <h1>Record a Training Session</h1>
 
+<%= render partial: "layouts/errors", locals: { object: @training } %> <!-- 2021-01-15 02-->
+
 <%= form_for [@workout,@training] do |f| %><!-- 2021-01-15-->
 <!-- if there is an error here, it could because the "new" method isn't definded in the trainings_controller-->
   <%= f.label :date %>
@@ -24,6 +26,7 @@
    <br><br>
 
    <h3>Or Create a new workout:</h3>
+   <%= render partial: "layouts/errors", locals: { object: @training.workout } %> <!-- 2021-01-15 02-->
 
   <%= f.fields_for :workout do |w| %>
     <%= w.label :name %>
