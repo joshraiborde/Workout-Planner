@@ -25,5 +25,6 @@ class UsersController < ApplicationController
         params.require(:user).permit(:username, :email, :password)
         # require the model
         # permit the attributes you want to allow in
+        # strong params
     end
 end
