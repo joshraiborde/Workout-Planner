@@ -1,1 +1,6 @@
 <h1> Welcome, <%= @user.username%> </h1>   
+
+<% @user.races.distance_search(1).order_alpha_reverse.each do |r| %> <!-- 2021-01-15 02 -->
+  <%= r.distance %> <!-- 2021-01-15 02 -->
+  <%= r.title %> <!-- 2021-01-15 02 -->
+<% end %> <!-- 2021-01-15 02 -->
