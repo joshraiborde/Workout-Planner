@@ -1,5 +1,7 @@
 <h1> Sign Up Here! </h1>
 
+<%= render partial: "layouts/errors", locals: { object: @user } %> <!-- 2021-01-15 02 -->
+
 <%= form_for @user do |f| %>
 <!-- because we're creating a user, we're using '@user' instead of ':user' because ':user' is for finding a user in the database -->
     
