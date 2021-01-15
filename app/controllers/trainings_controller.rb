@@ -16,7 +16,7 @@ class TrainingsController < ApplicationController
   end
   
 
-  def new
+  def new #2021-01-15
     #if it's nested
     if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id])
       @training = @workout.trainings.build #has_many
