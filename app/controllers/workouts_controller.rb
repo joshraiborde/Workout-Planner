@@ -1,6 +1,7 @@
 class WorkoutsController < ApplicationController
     def index
-        @workouts = Workout.all
+        # @workouts = Workout.all # 2021-01-15 02
+        @workouts = Workout.order_by_popularity # 2021-01-15 02
     end
   
     def show
