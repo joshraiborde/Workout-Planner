@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'trainings/show'
+  get 'trainings/new'
+  get 'trainings/index'
   root 'sessions#index'
   
   #custom routes for login
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
 
   resources :workouts
-  resources :sessions
+  resources :trainings
   resources :races
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
