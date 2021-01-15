@@ -1,0 +1,12 @@
+<% if object.try(:errors).try(:any?) %> <!--.try makes sure that if theres a nil, it wont show an error when you chain methods together. it will skip doing that method if would show an error if there is a nil value. so this entire block of code would get ignored, if there is an error if there is a nil value.-->
+  <div id="error_explanation">
+    <h2><%= pluralize(object.errors.count, "error") %> prohibited this from being saved:</h2>
+
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<!-- 2021-01-15 02 -->
