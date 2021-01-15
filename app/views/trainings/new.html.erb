@@ -14,7 +14,7 @@
   <%= f.collection_select :race_id, current_user.races, :id, :title    %> <!-- gives a dropdown menu of  the races that were created and stored in the database-->
 
   <br><br>
-<% if @workout %>
+<% if @workout %> <!-- 2021-01-15 -->
 <p> Workout: <%= @workout.name %> </p>
 <%= f.hidden_field :workout_id%>
 <% else %>
