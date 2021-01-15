@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
 
-  resources :workouts
+  resources :workouts do
+    resources :trainings, only: [:index, :new, :create] #2021-01-15
+  end
   resources :trainings
   resources :races
   resources :users
