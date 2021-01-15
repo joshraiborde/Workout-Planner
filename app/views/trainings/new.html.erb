@@ -1,6 +1,6 @@
 <h1>Record a Training Session</h1>
 
-<%= form_for @training do |f| %>
+<%= form_for [@workout,@training] do |f| %><!-- 2021-01-15-->
 <!-- if there is an error here, it could because the "new" method isn't definded in the trainings_controller-->
   <%= f.label :date %>
   <%= f.date_field :date %>
@@ -14,7 +14,10 @@
   <%= f.collection_select :race_id, current_user.races, :id, :title    %> <!-- gives a dropdown menu of  the races that were created and stored in the database-->
 
   <br><br>
-
+<% if @workout %>
+<p> Workout: <%= @workout.name %> </p>
+<%= f.hidden_field :workout_id%>
+<% else %>
    <%= f.label :workout_id, "Select a workout:" %>
   <%= f.collection_select :workout_id, Workout.all, :id, :name, include_blank: true    %> <!-- gives a dropdown menu of  the workouts that were created and stored in the database-->
 
@@ -41,6 +44,7 @@
 
   <%= w.hidden_field :user_id, value: current_user.id %>
     <br><br>
+  <% end %><!-- 2021-01-15 -->
   <% end %>
   <%= f.submit%>
  
