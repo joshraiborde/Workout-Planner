@@ -5,13 +5,15 @@ class TrainingsController < ApplicationController
 
   def index #2021-01-15 added index action
     #if it's nested
-    if params[:workout_id] && workout = Workout.find_by_id(params[:workout_id])
-      @trainings = workout.trainings
+    if params[:workout_id] && @workout = Workout.find_by_id(params[:workout_id]) #2021-01-16 01
+      @trainings = @workout.trainings #2021-01-16 01
 
     #load up ony the trainings nested under that workout
-    else
-      #else keep with the same old stuff
-      @trainings = Training.all
+  elsif params[:race_id] && @race = Race.find_by_id(params[:race_id]) #2021-01-16 01
+    @trainings = @race.trainings #2021-01-16 01
+  else
+    #keep with the same old stuff
+    @trainings = Training.all
     end
   end
   
