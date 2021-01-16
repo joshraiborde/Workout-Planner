@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     resources :trainings, only: [:index, :new, :create] #2021-01-15
   end
   resources :trainings
-  resources :races
+  resources :races do # 2021-01-16 01
+    resources :trainings # 2021-01-16 01
+  end# 2021-01-16 01
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
