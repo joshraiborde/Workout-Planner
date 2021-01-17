@@ -1,11 +1,12 @@
 class WorkoutsController < ApplicationController
+    before_action :set_workout, only: [:show] #2021-01-16 02
+    
     def index
         # @workouts = Workout.all # 2021-01-15 02
         @workouts = Workout.order_by_popularity # 2021-01-15 02
     end
   
-    def show
-        @workout = Workout.find(params[:id])
+    def show #2021-01-16 02 
     end
   
     def new
@@ -30,4 +31,9 @@ class WorkoutsController < ApplicationController
         # permit the attributes you want to allow in
         # strong params
     end
+
+    def set_workout # finding an instance # 2021-01-16 02
+        @workout = Workout.find_by(id: params[:id])
+        redirect_to workouts_path if !@workout #redirect to all of the workouts if a specifc workout was not found from the params :id
+     end
 end
