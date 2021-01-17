@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    skip_before_action :redirect_if_not_logged_in, only: [:new, :create] # 2021-01-16 02
+    # this will skip the before_action that is in the application_controller, allowing users to signup
 
     def new
         @user = User.new
