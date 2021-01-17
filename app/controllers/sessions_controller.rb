@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+    skip_before_action :redirect_if_not_logged_in # 2021-01-16 02
+    # this will skip the before_action that is in the application_controller, allowing users to login
 
     def index 
     end
