@@ -18,4 +18,17 @@ class Training < ApplicationRecord
     #   self.workout = workout
     # end
   end
+  
+  def datetime #2021-01-16 02 moved here for easy access to modify
+    self.date.strftime("%A, %b %d") if self.date
+    #self.date.try(:strftime, "%A, %b %d") this does the same as thing as the line above
+  end
+
+  def username #2021-01-17
+    @username ||= self.race.try(:user).try(:username) # 2021-01-17 moved here from app/views/trainings/index.html.erb
+  end
+
 end
+
+# 2021-01-16 02 code that involves your database should go in your model
+# 2021-01-16 02 anything to do with "sorting" or "ordering" goes in a scope method in the model
