@@ -16,39 +16,7 @@
   <%= f.collection_select :race_id, current_user.races, :id, :title    %> <!-- gives a dropdown menu of  the races that were created and stored in the database-->
 
   <br><br>
-<% if @workout %> <!-- 2021-01-15 -->
-<p> Workout: <%= @workout.name %> </p>
-<%= f.hidden_field :workout_id%>
-<% else %>
-   <%= f.label :workout_id, "Select a workout:" %>
-  <%= f.collection_select :workout_id, Workout.all, :id, :name, include_blank: true    %> <!-- gives a dropdown menu of  the workouts that were created and stored in the database-->
-
-   <br><br>
-
-   <h3>Or Create a new workout:</h3>
-   <%= render partial: "layouts/errors", locals: { object: @training.workout } %> <!-- 2021-01-15 02-->
-
-  <%= f.fields_for :workout do |w| %>
-    <%= w.label :name %>
-  <%= w.text_field :name %>
-    <br><br>
-
-  <%= w.label :category %>
-  <%= w.select :category,options_for_select(["run", "swim", "bike", "walk", "weights", "other"]), include_blank: true  %><!-- gives a dropdown menu -->
-    <br><br>
-
-  <%= w.label :pace %>
-  <%= w.text_field :pace %>
-  <br><br>
-
-  <%= w.label :distance, "Distance in Miles" %>
-  <%= w.text_field :distance %>
-    <br><br>
-
-  <%= w.hidden_field :user_id, value: current_user.id %>
-    <br><br>
-  <% end %><!-- 2021-01-15 -->
-  <% end %>
+  <%= workout_form_option(f) %> <!-- 2021-01-17 linked to app/helpers/trainings_helper.rb -->
   <%= f.submit%>
  
 <% end %> 
